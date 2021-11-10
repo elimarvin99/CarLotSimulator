@@ -19,9 +19,9 @@ namespace CarLotSimulator
             //Set the properties for each of the cars
             //Call each of the methods for each car
             var Car1 = new Car() { Year = "1996", Make = "Toyota", Model = "Camry", EngineNoise = "Vroom", HonkNoise = "Beep", IsDriveable = true };
-
+            Console.WriteLine($"Number of cars in the lot is {CarLot.NumberOfCars}");
             var Car2 = new Car("2019","Honda","Accord", "vrrrrrrrm","Beep, beep",false);
-
+            Console.WriteLine($"Number of cars in the lot is {CarLot.NumberOfCars}");
             var Car3 = new Car();
             Car3.Year = "2006";
             Car3.Make = "Audi";
@@ -29,7 +29,7 @@ namespace CarLotSimulator
             Car3.EngineNoise = "vrmvrm";
             Car3.HonkNoise = "Deutsche";
             Car3.IsDriveable = true;
-
+            Console.WriteLine($"Number of cars in the lot is {CarLot.NumberOfCars}");
 
             Car1.MakeEngineNoise();
             Car1.MakeHonkNoise();
@@ -50,19 +50,20 @@ namespace CarLotSimulator
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
 
-            var carLot1 = new CarLot(new List<Car>());   //how to make that the list isn't set to null when constructed
-            //carLot1.MyCarList = new List<Car>();
-            carLot1.MyCarList.Add(Car1);
-            carLot1.MyCarList.Add(Car2);
-            carLot1.MyCarList.Add(Car3);
+
+            //var carLot1 = new CarLot(new List<Car>());   //this is how to add to the list if it's not static and we need to create a specific instance of it
+            //CarLot.MyCarList = new List<Car>();
+            //CarLot.MyCarList.Add(Car1);
+            //CarLot.MyCarList.Add(Car2);
+            //CarLot.MyCarList.Add(Car3);
 
             Console.WriteLine("Our Car Lot has these vehicles:");
 
-            foreach (var num in carLot1.MyCarList)
+            foreach (var car in CarLot.MyCarList)
             {
-                Console.WriteLine(num.Year);
-                Console.WriteLine(num.Make);
-                Console.WriteLine(num.Model);
+                Console.WriteLine($"{car.Year}, {car.Make}, {car.Model}");
+                car.MakeEngineNoise();
+                car.MakeHonkNoise();
             }
 
 

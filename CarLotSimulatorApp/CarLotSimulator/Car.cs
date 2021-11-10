@@ -13,7 +13,9 @@ namespace CarLotSimulator
     {
         public Car()
         {
-
+            //this will automatically increase the car by one each time a car object is created
+            CarLot.NumberOfCars++;
+            CarLot.MyCarList.Add(this);  //the this keyword refers to the specific object being created
         }
         public Car(string year, string make, string model, string engineNoise, string honkNoise, bool isDriveable)
         {
@@ -23,6 +25,8 @@ namespace CarLotSimulator
             EngineNoise = engineNoise;
             HonkNoise = honkNoise;
             IsDriveable = isDriveable;
+            CarLot.NumberOfCars++;
+            CarLot.MyCarList.Add(this);
 
         }
         public string Year { get; set; }

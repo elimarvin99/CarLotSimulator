@@ -21,6 +21,8 @@ namespace CarLotSimulator
         {
             MyCarList = mycarlist;
         }
-        public List<Car> MyCarList { get; set; }
+        public static List<Car> MyCarList { get; set; } = new List<Car>();
+
+        public static int NumberOfCars { get; set; }
     }
 }
